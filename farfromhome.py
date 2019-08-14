@@ -45,5 +45,6 @@ while True:
             print('Waiting for fix...')
             continue
         dist = haversine(gps.latitude, gps.longitude, homelat, homelon)
-        print("You are: {0}\nkm from home\n\nAnd: {1}\nmiles from home".format(dist["km"], dist["miles"]))
-        print("\n\n")
+        print("Lat: {0:.6f}".format(gps.latitude))
+        print("Lon: {0:.6f}\n".format(gps.longitude))
+        print("You are: {0:.3f} km\nfrom home\n\nAnd: {1:.3f} miles\nfrom home".format(dist["km"], dist["miles"]))
