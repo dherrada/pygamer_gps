@@ -60,15 +60,15 @@ while True:
         if not gps.has_fix:
             print('Waiting for fix...')
             continue
-        if joystick_y.value > 37000 and a < 4:
+        if joystick_y.value > 37000 and a < 5:
             a += 1
         elif joystick_y.value < 28000 and a > 0:
             a -= 1
         if not b:
-            array = [' ', ' ', ' ', ' ', ' ']
+            array = [' ', ' ', ' ', ' ', ' ', ' ']
             array.insert(a, '*')
-            print("{0}Farfromhome\n{1}Longitude\n{2}Latitude\n{3}Datetime\n{4}Speed".format(array[0], array[1], array[2], array[3], array[4]))
-            print("\n\n")
+            print("{0}Farfromhome\n{1}Longitude\n{2}Latitude\n{3}Datetime\n{4}Speed\n{5}Altitude".format(array[0], array[1], array[2], array[3], array[4], array[5]))
+            print("\n")
         if joystick_x.value > 37000:
             b = 1
         elif joystick_x.value < 28000:
@@ -109,3 +109,8 @@ while True:
                     print('Speed: {} mph'.format(gps.speed_knots*1.151))
                     print('speed: {} kmh'.format(gps.speed_knots*1.852))
                     print('\n\n\n\n')
+            elif a == 5:
+                # altitude
+                print('Altitude: {} meters'.format(gps.altitude_m))
+                print('Altitude: {} feet'.format(gps.altitude_m * 3.28084))
+                print('\n\n\n\n\n')
